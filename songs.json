@@ -1,0 +1,19 @@
+[
+   
+    {
+        "id": "1",
+        "album": "Graveyard",
+        "artist": "Halsey",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Halsey_-_Graveyard.png/220px-Halsey_-_Graveyard.png",
+        "title": "Graveyard",
+        "url": "Halsey - Graveyard"
+    },
+    {
+        "id": "2",
+        "album": "Eastside",
+        "artist": "Halsey & Khalid ",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Benny_Blanco%2C_Halsey_and_Khalid_Eastside.png/220px-Benny_Blanco%2C_Halsey_and_Khalid_Eastside.png",
+        "title": "Eastside",
+        "url": "Benny Blanco, Halsey & Khalid - Eastside"
+    }
+]
