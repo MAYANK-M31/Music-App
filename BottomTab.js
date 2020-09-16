@@ -19,6 +19,8 @@ const initialtrack = {
     "img": "https://www.w3.org/TR/SVGTiny12/examples/solidcolor.svg"
 }
 
+
+
 const BottomTab = ({ MusicPlayer }) => {
     const navigation = useNavigation();
     const [isplaying, setisplaying] = useState("loading")
@@ -26,21 +28,49 @@ const BottomTab = ({ MusicPlayer }) => {
 
     const PlaybackState = usePlaybackState();
     const { position, duration, buffered } = useProgress()
-    
+
+    const track = {
+        "id": data.id,
+        "url": data.url,
+        "title": data.title,
+        "album": data.album,
+        "artist": data.artist,
+        "img": data.img
+    }
 
     // to give track array some data to avoid empty data error
-    useEffect(()=>{
-        setdata(initialtrack)
-    },[])
+    useEffect(() => {
+        // setdata(initialtrack)
+        func = async () => {
+            const lastsong = JSON.parse(await AsyncStorage.getItem("lastsong"))
+
+            if (lastsong == "undefined") {
+                TrackPlayer.reset()
+                // TrackPlayer.add(initialtrack)
+                setdata(initialtrack)
+                // alert("inital")
+            } else {
+                TrackPlayer.reset()
+                TrackPlayer.add([lastsong])
+                setdata(lastsong)
+                // console.log([lastsong])
+                // console.log(lastsong)
+            }
+        }
+
+
+
+        func()
+    }, [])
 
     useEffect(() => {
         if (position.toFixed(0) == duration.toFixed(0) - 1) {
             setisplaying("paused")
             // alert("stopped")
         }
-  
+
     }, [position])
-    
+
     // to loadlast played song on app reopen and also to change track info on search playing instant
     useEffect(() => {
         const trackfunction = async () => {
@@ -48,8 +78,8 @@ const BottomTab = ({ MusicPlayer }) => {
             const trackinfo = await TrackPlayer.getTrack(track_Id)
             const lastsong = JSON.parse(await AsyncStorage.getItem("lastsong"))
             // console.log(lastsong)
-            // console.log(track_Id)
-            
+            // console.log(trackinfo)
+
             if (track_Id == "undefined") {
                 setdata(lastsong)
                 TrackPlayer.reset()
@@ -79,15 +109,8 @@ const BottomTab = ({ MusicPlayer }) => {
 
     }, [PlaybackState])
 
-    
-    const track = {
-        id: data.id,
-        url: data.url,
-        title: data.title,
-        album: data.album,
-        artist: data.artist,
-        img: data.img
-    }
+
+
 
     // console.log(data._id)
 

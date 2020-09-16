@@ -160,7 +160,7 @@ const MusicPlayer = ({ navigation }) => {
                 // console.log(a)
                 // TrackPlayer.reset()
                 // await TrackPlayer.add(a,await TrackPlayer.getCurrentTrack())
-                //  console.log(await TrackPlayer.getQueue())
+                 console.log(await TrackPlayer.getQueue())
 
                 TrackPlayer.skipToNext()
                 TrackPlayer.play()

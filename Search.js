@@ -11,6 +11,7 @@ var _ = require('underscore');
 
 const WIDTH = Dimensions.get("window").width
 const HEIGHT = Dimensions.get("window").height
+
 const Search = () => {
     const [result, setresult] = useState("");
     const [data, setdata] = useState([])
@@ -20,15 +21,23 @@ const Search = () => {
     const [array, setarray] = useState([])
     const [recent, setrecent] = useState([])
     const [history, sethistory] = useState(false)
+    const [artist, setartist] = useState({ artist: "artist", image: "https://a2zwiki.com/wp-content/uploads/2020/01/Arijit-Singh-Wiki.jpg" })
+    const [showartist, setshowartist] = useState(false)
+    const [cross, setcross] = useState()
+    const [searchdata,setsearchdata] = useState()
 
 
     const search = async (data) => {
         setloading(true)
         sethistory(false)
-        if (data === "") {  /// To avoid showing no result found on  backpress inputbox
+        setsearchdata(data)
+        if (data.length == 0) {  /// To avoid showing no result found on  backpress inputbox
             setfound(true)
             setloading(false)
+            setcross(false)
             historyfuction()
+        } else {
+            setcross(true)
         }
 
         await axios.get("http://192.168.31.74:5000/data/" + `${data}`.toLowerCase())  // Toosie Slide  dolce gabbana
@@ -50,6 +59,28 @@ const Search = () => {
                     setfound(true)
                 }
 
+                //     // To Find Artist Name from Search
+                //     var artistnames = []  // Search Data Artist Array
+                //     res.data.map(name =>{      
+                //         artistnames.push(name.artist)  
+                //     })
+                //    const uniqueartist =  _.findWhere(artistnames, data)  // To seperate unique Name Of Artist
+
+
+                axios.get("http://192.168.31.74:5000/data/artist/search/" + `${data}`.toLowerCase())
+                    .then(res => {
+                        if (res.data.length > 0) {
+                            setshowartist(true)
+                            setartist(res.data[0])
+                        } else {
+                            setshowartist(false)
+                            // setartist({artist:"artist",image:"https://a2zwiki.com/wp-content/uploads/2020/01/Arijit-Singh-Wiki.jpg"})
+                        }
+
+
+
+
+                    })
 
             })
     }
@@ -102,7 +133,7 @@ const Search = () => {
             "img": item.img
         }
         TrackPlayer.reset()
-       
+
         TrackPlayer.add([track]).then(async function () {
             await TrackPlayer.play()
             // console.log(await TrackPlayer.getCurrentTrack())
@@ -157,7 +188,7 @@ const Search = () => {
         <View style={{ backgroundColor: "#f6f6f6", flex: 1 }} >
             <StatusBar backgroundColor={"#f6f6f6"} barStyle={"dark-content"} />
             <View style={{ width: WIDTH, alignItems: "center", top: 0, height: HEIGHT / 10, justifyContent: "center" }} >
-                <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-evenly", overflow: "hidden", backgroundColor: "white", alignItems: "center", borderRadius: 5, elevation: 0.2, borderColor: "silver", borderWidth: 0.3 }} >
+                <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-evenly", overflow: "hidden", backgroundColor: "white", alignItems: "center", borderRadius: 10, elevation: 0.5, borderColor: "#11ece5", borderWidth: 1 }} >
                     {loading ?
                         <View style={{ width: WIDTH / 12 }} >
                             <ActivityIndicator size={25} color={"grey"} />
@@ -171,12 +202,22 @@ const Search = () => {
 
 
                     <TextInput
-                        value={search}
+                        value={searchdata}
                         onChangeText={data => search(data)}
                         autoFocus={true}
                         autoCapitalize={"words"}
-                        placeholder=" Music, Artist and Albums" placeholderTextColor="silver" style={{ backgroundColor: "white", fontSize: 17, width: "90%", height: HEIGHT / 16, color: "#303846" }}
+                        placeholder="Music, Artist and Albums" placeholderTextColor="silver" style={{ backgroundColor: "white", fontSize: 17, width: "80%", height: HEIGHT / 16, color: "#303846", fontWeight: "700" }}
                     />
+                    <View style={{ width: WIDTH / 12, alignItems: "center", justifyContent: "center",height:"85%" }} >
+                        {cross ?
+                            <TouchableOpacity  style={{width:"100%",height:"50%"}} onPress={()=>{setsearchdata(),sethistory(true),setcross(false)}} >
+                                <Ionicons name={"close"} style={{ left: "10%" }} color={"grey"} size={20} />
+                            </TouchableOpacity>
+
+                            :
+                            null
+                        }
+                    </View>
                 </View>
 
             </View>
@@ -194,7 +235,7 @@ const Search = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <ScrollView keyboardShouldPersistTaps={"always"} style={{ height: HEIGHT / 1.25 }} >
+                    <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps={"always"} style={{ height: HEIGHT / 1.38 }} >
                         {recent.map((item) =>
 
                             <TouchableRipple rippleColor="rgba(0, 0, 0, 0.15)" onPress={() => play(item)} style={{ height: HEIGHT / 11, justifyContent: "center", alignItems: "center" }} >
@@ -208,7 +249,7 @@ const Search = () => {
                                         <Text style={{ fontSize: 12.5, color: "silver", textTransform: "capitalize" }} >{item.artist}</Text>
                                     </View>
                                     <View style={{ width: WIDTH / 5.2, height: "90%", justifyContent: "center", alignItems: "center", overflow: "hidden" }}>
-                                        <TouchableOpacity onPress={() => remove(item)} activeOpacity={0.9} style={{ width: "40%", height: "60%", backgroundColor: "white", borderRadius: 50, justifyContent: "center", alignItems: "center", bottom: "10%", elevation: 2, overflow: "hidden" }}  >
+                                        <TouchableOpacity onPress={() => remove(item)} activeOpacity={0.9} style={{ width: "40%", height: "60%", backgroundColor: "white", borderRadius: 50, justifyContent: "center", alignItems: "center", bottom: "10%", borderColor:"#11ece5",borderWidth:0.4,elevation:0.8, overflow: "hidden" }}  >
                                             <Icons name={'cross'} color={"grey"} size={20} />
                                         </TouchableOpacity>
 
@@ -222,10 +263,35 @@ const Search = () => {
 
                 </View> :
                 found ?
-                    <ScrollView keyboardShouldPersistTaps="always"   >
+                    <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="always"   >
+                        {showartist ?
+                            <>
+                                <View style={{ width: "50%", paddingLeft: "5%" }}>
+                                    <Text style={{ fontSize: 22, fontWeight: "700" }} >Artist</Text>
+                                </View>
+                                <View style={{ width: WIDTH, justifyContent: "center", alignItems: "center" }} >
+                                    <TouchableRipple rippleColor="rgba(0, 0, 0, 0.15)" onPress={() => play(item)} style={{ height: HEIGHT / 11, justifyContent: "center", alignItems: "center" }} >
+                                        <View style={{ width: WIDTH, height: HEIGHT / 13, alignItems: "center", flexDirection: "row", left: "20%", justifyContent: "center" }} >
+                                            <View style={{ width: WIDTH / 8, height: "85%", borderRadius: 50, overflow: "hidden" }}>
+                                                <Image style={{ width: "100%", height: "100%" }} source={{ uri: artist.image }} />
+                                            </View>
+                                            <View style={{ width: WIDTH / 1.5, height: "90%", paddingLeft: 15, justifyContent: "center" }}>
+                                                <Text style={{ fontSize: 15, fontWeight: "700", textTransform: "capitalize" }} >{artist.artist}</Text>
+                                                <Text style={{ fontSize: 12.5, color: "silver", textTransform: "capitalize" }} >Singer</Text>
+                                            </View>
+                                            <View style={{ width: WIDTH / 5.2, height: "90%", justifyContent: "center", alignItems: "center" }}>
+                                                <Icons name={'dots-three-vertical'} color={"grey"} size={20} />
+                                            </View>
+                                        </View>
+                                    </TouchableRipple>
+                                </View>
+                            </>
+                            :
+                            null
+                        }
                         <View style={{ width: WIDTH, left: "5%", height: HEIGHT / 25 }} >
                             {found ?
-                                <Text style={{ fontSize: 22 }} >Result</Text>
+                                <Text style={{ fontSize: 22, fontWeight: "700" }} >Top Result</Text>
                                 :
                                 null
                             }
@@ -258,6 +324,8 @@ const Search = () => {
                                 )
                             }}
                         />
+
+
                     </ScrollView>
                     :
                     <View style={{ width: WIDTH, height: HEIGHT, top: WIDTH / 2, alignItems: "center" }} >
