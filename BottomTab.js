@@ -21,7 +21,7 @@ const initialtrack = {
 
 
 
-const BottomTab = ({ MusicPlayer }) => {
+const BottomTab = () => {
     const navigation = useNavigation();
     const [isplaying, setisplaying] = useState("loading")
     const [data, setdata] = useState(initialtrack)
@@ -29,14 +29,7 @@ const BottomTab = ({ MusicPlayer }) => {
     const PlaybackState = usePlaybackState();
     const { position, duration, buffered } = useProgress()
 
-    const track = {
-        "id": data.id,
-        "url": data.url,
-        "title": data.title,
-        "album": data.album,
-        "artist": data.artist,
-        "img": data.img
-    }
+   
 
     // to give track array some data to avoid empty data error
     useEffect(() => {
@@ -63,6 +56,16 @@ const BottomTab = ({ MusicPlayer }) => {
         func()
     }, [])
 
+    const track = {
+        "id": data.id,
+        "url": data.url,
+        "title": data.title,
+        "album": data.album,
+        "artist": data.artist,
+        "img": data.img
+    }
+
+
     useEffect(() => {
         if (position.toFixed(0) == duration.toFixed(0) - 1) {
             setisplaying("paused")
@@ -79,19 +82,22 @@ const BottomTab = ({ MusicPlayer }) => {
             const lastsong = JSON.parse(await AsyncStorage.getItem("lastsong"))
             // console.log(lastsong)
             // console.log(trackinfo)
+           
 
             if (track_Id == "undefined") {
-                setdata(lastsong)
+                
                 TrackPlayer.reset()
                 TrackPlayer.add([track]).then(async function () {
                     // console.log(track.title)
                 });
+                setdata(lastsong)
             } else {
-                setdata(trackinfo)
+                
                 // console.log(trackinfo)
                 TrackPlayer.add([track]).then(async function () {
                     // console.log(track.title)
                 });
+                setdata(trackinfo)
 
             }
 
@@ -112,7 +118,6 @@ const BottomTab = ({ MusicPlayer }) => {
 
 
 
-    // console.log(data._id)
 
     const renderplaypause = () => {
         switch (isplaying) {

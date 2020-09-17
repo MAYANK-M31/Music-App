@@ -1,18 +1,19 @@
 import React, { Component, useState, useEffect } from "react";
-import { View, Text, TextInput, TouchableOpacity, Dimensions, ActivityIndicator, FlatList, Image, StatusBar, Keyboard, AsyncStorage } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Dimensions, ActivityIndicator, FlatList, Image, StatusBar, Keyboard, AsyncStorage, BackHandler } from "react-native";
 import Icons from "react-native-vector-icons/Entypo"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import axios from "axios";
 import { ScrollView } from "react-native-gesture-handler";
 import TrackPlayer from "react-native-track-player"
 import { TouchableRipple } from "react-native-paper"
+import { useNavigation } from '@react-navigation/native';
 
 var _ = require('underscore');
 
 const WIDTH = Dimensions.get("window").width
 const HEIGHT = Dimensions.get("window").height
 
-const Search = () => {
+const Searchpage = ({navigation}) => {
     const [result, setresult] = useState("");
     const [data, setdata] = useState([])
     const [found, setfound] = useState(null)
@@ -39,6 +40,7 @@ const Search = () => {
         } else {
             setcross(true)
         }
+
 
         await axios.get("http://192.168.31.74:5000/data/" + `${data}`.toLowerCase())  // Toosie Slide  dolce gabbana
             .then(res => {
@@ -186,7 +188,7 @@ const Search = () => {
 
     return (
         <View style={{ backgroundColor: "#f6f6f6", flex: 1 }} >
-            <StatusBar backgroundColor={"#f6f6f6"} barStyle={"dark-content"} />
+            <StatusBar backgroundColor={"tranparent"} barStyle={"dark-content"} />
             <View style={{ width: WIDTH, alignItems: "center", top: 0, height: HEIGHT / 10, justifyContent: "center" }} >
                 <View style={{ width: "90%", flexDirection: "row", justifyContent: "space-evenly", overflow: "hidden", backgroundColor: "white", alignItems: "center", borderRadius: 10, elevation: 0.5, borderColor: "#11ece5", borderWidth: 1 }} >
                     {loading ?
@@ -270,7 +272,7 @@ const Search = () => {
                                     <Text style={{ fontSize: 22, fontWeight: "700" }} >Artist</Text>
                                 </View>
                                 <View style={{ width: WIDTH, justifyContent: "center", alignItems: "center" }} >
-                                    <TouchableRipple rippleColor="rgba(0, 0, 0, 0.15)" onPress={() => play(item)} style={{ height: HEIGHT / 11, justifyContent: "center", alignItems: "center" }} >
+                                    <TouchableRipple rippleColor="rgba(0, 0, 0, 0.15)" onPress={() => navigation.navigate("ArtistPlaylist",{data:artist.artist,image:artist.image})} style={{ height: HEIGHT / 11, justifyContent: "center", alignItems: "center" }} >
                                         <View style={{ width: WIDTH, height: HEIGHT / 13, alignItems: "center", flexDirection: "row", left: "20%", justifyContent: "center" }} >
                                             <View style={{ width: WIDTH / 8, height: "85%", borderRadius: 50, overflow: "hidden" }}>
                                                 <Image style={{ width: "100%", height: "100%" }} source={{ uri: artist.image }} />
@@ -349,4 +351,4 @@ const Search = () => {
     )
 }
 
-export default Search;
+export default Searchpage;

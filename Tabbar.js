@@ -4,12 +4,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from "react-native-vector-icons/Ionicons"
 import Home from "./Home";
-import Search from "./Search";
 import Mymusic from "./Mymusic";
 import Browse from "./Browse";
 import MyTabBar from "./MyTabBar"
 import BottomTab from "./BottomTab";
 import MusicPlayer from "./MusicPlayer";
+import SearchStack from "./SearchStack";
 
 const Tab = createBottomTabNavigator()
 const HEIGHT = Dimensions.get("window").height
@@ -46,7 +46,7 @@ const Tabbar = (props) => {
                     keyboardHidesTabBar:true
                 }} >
                 <Tab.Screen  name="Home" component={Home}  />
-                <Tab.Screen  name="Search" component={Search} />
+                <Tab.Screen  name="Search" component={SearchStack} />
                 <Tab.Screen  name="Browse" component={Browse} />
                 <Tab.Screen name="MusicPlayer" component={MusicPlayer}  options={{tabBarButton:(props)=><BottomTab  {...props}/>,tabBarVisible:false }}  />
                 <Tab.Screen  name="My Music" component={Mymusic} />

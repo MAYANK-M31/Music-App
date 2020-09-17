@@ -7,9 +7,18 @@ import Slider from "@react-native-community/slider";
 import TrackPlayer, { play, useProgress, usePlaybackState } from 'react-native-track-player';
 import Moment from "moment";
 import axios from "axios"
-import { set } from "react-native-reanimated";
+import { useIsFocused } from '@react-navigation/native';
+
+
 const WIDTH = Dimensions.get("window")
 const HEIGHT = Dimensions.get("window").height
+
+
+function FocusAwareStatusBar(props) {
+    const isFocused = useIsFocused();
+
+    return isFocused ? <StatusBar {...props} /> : null;
+}
 
 
 const initialtrack = {
@@ -45,19 +54,6 @@ const MusicPlayer = ({ navigation }) => {
 
 
 
-    // const track = {
-    //     id: data._id,
-    //     url: data.url,
-    //     title: data.title,
-    //     album: data.album,
-    //     artist: data.artist,
-    //     img: data.img
-    // }
-
-
-
-
-
     // IMPORTANT STATE KNOWN DATA ---------------------------
     // STATE_READY = 2
     // STATE_NONE = 0
@@ -69,10 +65,12 @@ const MusicPlayer = ({ navigation }) => {
 
 
     useEffect(() => {
-        if (position.toFixed(0) == duration.toFixed(0) - 1) {
-            setisplaying("paused")
-            // alert("stopped")
+        const func = async()=>{
+            if (position.toFixed(0) == duration.toFixed(0)-1) {
+                TrackPlayer.skipToNext()
+            }
         }
+        func()
 
     }, [position])
 
@@ -87,6 +85,9 @@ const MusicPlayer = ({ navigation }) => {
             TrackPlayer.add([trackinfo]).then(async function () {
                 // console.log(track.title)
             });
+
+
+
 
             TrackPlayer.updateOptions({
                 stopWithApp: true
@@ -160,7 +161,7 @@ const MusicPlayer = ({ navigation }) => {
                 // console.log(a)
                 // TrackPlayer.reset()
                 // await TrackPlayer.add(a,await TrackPlayer.getCurrentTrack())
-                 console.log(await TrackPlayer.getQueue())
+                // console.log(await TrackPlayer.getQueue())
 
                 TrackPlayer.skipToNext()
                 TrackPlayer.play()
@@ -181,6 +182,7 @@ const MusicPlayer = ({ navigation }) => {
 
     return (
         <View style={{ flex: 1, alignItems: "center", backgroundColor: "#f6f6f6" }} >
+            <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#f6f6f6" />
             <View style={{ width: WIDTH.width, height: HEIGHT / 15, justifyContent: "center", borderBottomWidth: 0.4, borderColor: 'silver' }} >
                 <TouchableOpacity onPress={() => navigation.goBack()} style={{ width: "15%", alignItems: "center" }} >
                     <Ionicons name={"ios-close-outline"} color={"grey"} size={38} />
