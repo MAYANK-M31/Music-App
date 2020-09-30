@@ -10,6 +10,8 @@ import songs from "./songs"
 const WIDTH = Dimensions.get("window")
 const HEIGHT = Dimensions.get("window").height
 import { useIsFocused } from '@react-navigation/native';
+import { SafeAreaView } from "react-native-safe-area-context";
+import LottieView from "lottie-react-native"
 
 function FocusAwareStatusBar(props) {
   const isFocused = useIsFocused();
@@ -27,13 +29,11 @@ const Browse = () => {
   
     return (
         
-        <View>
-              <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#f6f6f6" />
-            <Text>Browse Page</Text>
-            {/* <TouchableOpacity onPress={()=>TrackPlayer.skipToNext()} >
-              <Text>skip</Text>
-            </TouchableOpacity> */}
-        </View>
+        <SafeAreaView style={{justifyContent:'center',alignItems:"center",height:HEIGHT,backgroundColor:"#f6f6f6"}} >
+              <FocusAwareStatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
+            <LottieView style={{height:250,width:250}} source={require('./animations/27330-construction-in-process-by-kit8net.json')} autoPlay loop />
+            <Text style={{ fontSize: 22,fontWeight:"700",top:20 }}>Under Construction...</Text>
+        </SafeAreaView>
     )
 }
 

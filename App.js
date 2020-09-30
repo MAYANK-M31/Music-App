@@ -14,7 +14,8 @@ import Tabbar from "./Tabbar"
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement'
 ,"VirtualizedLists"
 ,"Warning: Each child in a list",
-" Warning: Cannot update a component...."]);
+" Warning: Cannot update a component....",
+"StatusBar._updatePropsStack"]);
 
 const App = () => {
  

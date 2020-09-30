@@ -1,19 +1,242 @@
 [
-   
     {
-        "id": "1",
-        "album": "Graveyard",
-        "artist": "Halsey",
-        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Halsey_-_Graveyard.png/220px-Halsey_-_Graveyard.png",
-        "title": "Graveyard",
-        "url": "http://192.168.31.74:5000/data/stream/Halsey - Graveyard"
+        "album": "Dark Lane Demo Tapes",
+        "artist": "Drake",
+        "id": "5f572d3dee85b18934c9ef67",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Drake_-_Toosie_Slide.png/220px-Drake_-_Toosie_Slide.png",
+        "title": "toosie slide",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Toosie Slide"
     },
     {
-        "id": "2",
-        "album": "Eastside",
-        "artist": "Halsey & Khalid ",
-        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Benny_Blanco%2C_Halsey_and_Khalid_Eastside.png/220px-Benny_Blanco%2C_Halsey_and_Khalid_Eastside.png",
-        "title": "Eastside",
-        "url": "http://192.168.31.74:5000/data/stream/Benny Blanco, Halsey & Khalid - Eastside"
+        "album": "Ciao Adios ",
+        "artist": "Anne-Marie",
+        "id": "5f57d5f12652d031f8eba837",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Anne-Marie_-_Ciao_Adios.png/220px-Anne-Marie_-_Ciao_Adios.png",
+        "title": "Ciao Adios - Anne-Marie",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Anne-Marie - Ciao Adios ( )"
+    },
+    {
+        "album": "PUBGM)",
+        "artist": "Alan Walker x A AP Rocky",
+        "id": "5f57d6522652d031f8eba838",
+        "img": "https://www.hdwallpapers.in/download/alan_walker_a_ap_rocky_live_fast_pubg_4k-2560x1440.jpg",
+        "title": "Live Fast (PUBGM) ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/live fast"
+    },
+    {
+        "album": "Drake ",
+        "artist": "Drake ",
+        "id": "5f57d7572652d031f8eba83b",
+        "img": "https://images-na.ssl-images-amazon.com/images/I/81R2R15xvBL._SL1500_.jpg",
+        "title": "In My Feelings",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Drake - In My Feelings kiki do you love me "
+    },
+    {
+        "album": "dangal",
+        "artist": "arijit singh",
+        "id": "5f57d8072652d031f8eba83c",
+        "img": "https://cdn.dnaindia.com/sites/default/files/styles/full/public/2016/12/13/528438-1549218318553374013670725092079776923524291n-1.jpg",
+        "title": "Naina",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Naina - Dangal Aamir Khan Arijit Singh Pritam Amitabh Bhattacharya New Song 2017"
+    },
+    {
+        "album": "Halsey ",
+        "artist": "Halsey ",
+        "id": "5f57d85d2652d031f8eba83d",
+        "img": "https://upload.wikimedia.org/wikipedia/en/f/f1/Without_Me_%E2%80%93_Halsey.png",
+        "title": "Without Me",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Halsey - Without Me"
+    },
+    {
+        "album": "DOCTOR ",
+        "artist": "Sidhu Moose Wala ",
+        "id": "5f57d8bc2652d031f8eba83e",
+        "img": "https://api.pendu-jatt.com/thumb/20280.jpg",
+        "title": "DOCTOR ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/DOCTOR (Official Video) Sidhu Moose Wala Kidd Hunny Pk Films Gold Media New Punjabi Songs"
+    },
+    {
+        "album": "The Chainsmokers, Illenium - Takeaway ft. Lennon Stella",
+        "artist": "The Chainsmokers ft. Lennon Stella",
+        "id": "5f57d9642652d031f8eba83f",
+        "img": "https://cdns-images.dzcdn.net/images/cover/838c1725d9559e1e89da8968e0850165/500x500.jpg",
+        "title": "Takeaway ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/The Chainsmokers, Illenium - Takeaway ft. Lennon Stella"
+    },
+    {
+        "album": "don t stay awake for too long",
+        "artist": "Powfu ",
+        "id": "5f57d9c12652d031f8eba840",
+        "img": "https://upload.wikimedia.org/wikipedia/en/3/3e/Powfu_-_Death_Bed.png",
+        "title": "Death Bed",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Powfu - Death Bed ft. beabadoobee don t stay awake for too long"
+    },
+    {
+        "album": "Badhaai Ho",
+        "artist": "Guru Randhawa",
+        "id": "5f57da1d2652d031f8eba841",
+        "img": "https://a10.gaanacdn.com/images/song/30/24274730/crop_480x480_1537965014.jpg",
+        "title": "Morni Banke",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Morni Banke Badhaai Ho Guru Randhawa Tanishk Bagchi Neha Kakkar Ayushmann K, Sanya M"
+    },
+    {
+        "album": "M S Dhoni The Untold Story Song",
+        "artist": "armaan malik",
+        "id": "5f57da792652d031f8eba842",
+        "img": "https://i1.sndcdn.com/artworks-000187659727-42c16u-t500x500.jpg",
+        "title": "Jab Tak",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Jab Tak - M S Dhoni The Untold Story Song"
+    },
+    {
+        "album": "East Side Flow ",
+        "artist": "Sidhu Moose Wala ",
+        "id": "5f57db252652d031f8eba843",
+        "img": "https://1.bp.blogspot.com/-O4J5AxyXXTs/XKmMuPYsIYI/AAAAAAAAED4/tv7dMlzoDTcUiWcI3lnElXq_zLVh3X1aACLcBGAs/w680/end-side-flow-lyrics-sidhu-moose-wala.jpg",
+        "title": "East Side Flow ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/East Side Flow Sidhu Moose Wala Byg Byrd Sunny Malton Juke Dock"
+    },
+    {
+        "album": "Échame La Culpa ",
+        "artist": "Luis Fonsi, Demi Lovato",
+        "id": "5f57e898908aa912a420a741",
+        "img": "https://upload.wikimedia.org/wikipedia/en/6/6e/Luis_Fonsi_and_Demi_Lovato_%C3%89chame_la_Culpa.jpg",
+        "title": "Échame La Culpa ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Echame La Culpa - Luis Fonsi, Demi Lovato"
+    },
+    {
+        "album": "Ellie Goulding - Love Me Like You Do",
+        "artist": "Ellie Goulding",
+        "id": "5f57e920908aa912a420a742",
+        "img": "https://images-na.ssl-images-amazon.com/images/I/812FwTlCCEL._SL1500_.jpg",
+        "title": "Love Me Like You Do",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Ellie Goulding - Love Me Like You Do"
+    },
+    {
+        "album": "Hawa Banke - Darshan Raval",
+        "artist": "Darshan Raval",
+        "id": "5f57e95a908aa912a420a743",
+        "img": "https://images.genius.com/b0f1534246e8d17e7d3187f6eb41cc6a.600x600x1.jpg",
+        "title": "Hawa Banke",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Hawa Banke - Darshan Raval"
+    },
+    {
+        "album": "Justin Bieber - Intentions ft. Quavo",
+        "artist": "Justin Bieber ft. Quavo",
+        "id": "5f57e9af908aa912a420a744",
+        "img": "https://i.ytimg.com/vi/D_s4gEk_Fbs/maxresdefault.jpg",
+        "title": "Intentions ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Justin Bieber - Intentions ft. Quavo"
+    },
+    {
+        "album": "SANJU Sidhu Moose Wala The Kidd ",
+        "artist": "Sidhu Moose Wala",
+        "id": "5f57ea0f908aa912a420a745",
+        "img": "https://www.pagalworld.mobi/GpE34Kg9Gq/113461/143956-sanju-sidhu-moose-wala-mp3-song-300.jpg",
+        "title": "SANJU ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/SANJU (Full Video) Sidhu Moose Wala The Kidd Latest Punjabi Songs 2020"
+    },
+    {
+        "album": "Tibbeyan Da Putt - Sidhu Moose Wala ",
+        "artist": "Sidhu Moose Wala",
+        "id": "5f57ea63908aa912a420a746",
+        "img": "https://cover.mr-jatt.im/thumb/488107/Tibbeyan-Da-Putt.jpg",
+        "title": "Tibbeyan Da Putt",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Tibbeyan Da Putt - Sidhu Moose Wala (DjPunjab.Com)"
+    },
+    {
+        "album": "DripReport - Skechers feat. Badshah ",
+        "artist": "DripReport , Badshah",
+        "id": "5f57eac0908aa912a420a747",
+        "img": "https://i.ytimg.com/vi/0kjYCDqVDbI/maxresdefault.jpg",
+        "title": "Skechers",
+        "url": "https://song-streamer.herokuapp.com/data/stream/DripReport - Skechers feat. Badshah"
+    },
+    {
+        "album": "Clean Bandit, Demi Lovato - Solo",
+        "artist": "Clean Bandit, Demi Lovato ",
+        "id": "5f57eb16908aa912a420a748",
+        "img": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Solo_%28Clean_Bandit_song%29.png/220px-Solo_%28Clean_Bandit_song%29.png",
+        "title": "Solo",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Clean Bandit, Demi Lovato - Solo"
+    },
+    {
+        "album": "De De Pyaar De",
+        "artist": "Arijit singh",
+        "id": "5f57eb85908aa912a420a749",
+        "img": "https://a10.gaanacdn.com/images/song/33/26321133/crop_480x480_1556867121.jpg",
+        "title": "Chale Aana",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Chale Aana - De De Pyaar De"
+    },
+    {
+        "album": "love aaj kal",
+        "artist": "arijit singh",
+        "id": "5f5a0069d1a6cf3f809eb9a0",
+        "img": "https://www.pagalworld.mobi/GpE34Kg9Gq/113467/143567-shayad-love-aaj-kal-mp3-song-300.jpg",
+        "title": "shayad ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Shayad - Love Aaj Kal"
+    },
+    {
+        "album": "control",
+        "artist": "armaan malik",
+        "id": "5f5a01abc680ee3188cb11fb",
+        "img": "https://pagalworld.to/siteuploads/thumb/sft2/636_4.jpg",
+        "title": "control",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Control - Armaan Malik 320Kbps(DJPubg.Com)"
+    },
+    {
+        "album": "Kabir Singh",
+        "artist": "Tulsi Kumar, Akhil Sachdeva",
+        "id": "5f5a02d9c680ee3188cb11fc",
+        "img": "https://pagalsong.in/uploads//thumbnails/300x300/id3Picture_1750511267.jpg",
+        "title": "Tera Ban Jaunga ",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Tera Ban Jaunga - Kabir Singh 128 Kbps"
+    },
+    {
+        "album": "g.o.a.t",
+        "artist": "diljit dosanjh",
+        "id": "5f65fa3c6dd75df4e4d411cd",
+        "img": "https://media.newstracklive.com/uploads/entertainment-news/regional-cinema-news/Sep/05/big_thumb/DILJIT_5f534efb2e3a9.JPG",
+        "title": "born to shine",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Born To Shine"
+    },
+    {
+        "album": "Interview",
+        "artist": "ikka",
+        "id": "5f6c98076dd75df4e4a8e4d8",
+        "img": "https://cover.djpunjab.org/43362/300x700/Interview-Ikka.jpg",
+        "title": "Interview",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Interview"
+    },
+    {
+        "album": "liv in",
+        "artist": "prem dhillon",
+        "id": "5f6c98076dd75df4e4a8e4d9",
+        "img": "https://lq.djring.com/covers/721956/Liv%20In%20Ft.%20Barbie%20Maan.jpg",
+        "title": "liv in",
+        "url": "https://song-streamer.herokuapp.com/data/stream/liv in"
+    },
+    {
+        "album": "old skool",
+        "artist": "prem dhillon",
+        "id": "5f6c98076dd75df4e4a8e4da",
+        "img": "https://cover.djpunjab.org/47388/300x700/Old-Skool-Ft.-Sidhu-Moose-Wala-Prem-Dhillon.jpg",
+        "title": "old skool",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Old Skool"
+    },
+    {
+        "album": "kya baat hai",
+        "artist": "karan aujla",
+        "id": "5f6c9b156dd75df4e4aaa153",
+        "img": "https://pagalsong.in/uploads//thumbnails/300x300/id3Picture_620503031.jpg",
+        "title": "kya baat hai",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Kya Baat Hai"
+    },
+    {
+        "album": "Sumit Goswami",
+        "artist": "sumit Goswami",
+        "id": "5f6f3c5c6dd75df4e4dd0813",
+        "img": "https://paglasongs.com/uploads/thumb/sft4/1865_4.jpg",
+        "title": "feelings",
+        "url": "https://song-streamer.herokuapp.com/data/stream/Feelings"
     }
 ]

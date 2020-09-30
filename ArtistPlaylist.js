@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, Dimensions, ActivityIndicator, Image, StatusBar, FlatList, ScrollView, ImageBackground } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions, ActivityIndicator,AsyncStorage, Image, StatusBar, FlatList, ScrollView, ImageBackground,Modal } from "react-native";
 import AntIcons from "react-native-vector-icons/AntDesign"
 import axios from "axios"
 import TrackPlayer from "react-native-track-player"
@@ -7,7 +7,7 @@ import { TouchableRipple } from "react-native-paper"
 import Icons from "react-native-vector-icons/Entypo"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import LinearGradient from "react-native-linear-gradient"
-
+import LottieView from "lottie-react-native"
 
 const WIDTH = Dimensions.get("window").width
 const HEIGHT = Dimensions.get("window").height
@@ -17,10 +17,11 @@ const HEIGHT = Dimensions.get("window").height
 const ArtistPlaylist = ({route}) => {
     
     const [result, setresult] = useState([])
+    const [loading,setloading] = useState(true)
 
     useEffect(() => {
         fetchfunc = async () => {
-            await axios.get("http://192.168.31.74:5000/data/" + `${route.params.data}`.toLowerCase())  // Toosie Slide  dolce gabbana
+            await axios.get("https://song-streamer.herokuapp.com/data/" + `${route.params.data}`.toLowerCase())  // Toosie Slide  dolce gabbana
                 .then(async res => {
                     const data = res.data
                     function renameKey(obj, oldKey, newKey) {
@@ -29,8 +30,12 @@ const ArtistPlaylist = ({route}) => {
                     }
                     data.forEach(data => renameKey(data, '_id', 'id'));
                     setresult(data)
-                
+                    setloading(false)
+                    
+                                 
+                    
                     await TrackPlayer.add(data)
+                    
                     
         
                 })
@@ -41,7 +46,7 @@ const ArtistPlaylist = ({route}) => {
 
      
     const play= async(item) =>{
-        
+        await AsyncStorage.setItem("lastsong", JSON.stringify(item))
         TrackPlayer.skip(item.id)
         TrackPlayer.play()
 
@@ -58,7 +63,7 @@ const ArtistPlaylist = ({route}) => {
 
     return (
         <View style={{ backgroundColor: "#f6f6f6" }}  >
-            <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
+            <StatusBar translucent backgroundColor={"transparent"} barStyle={"dark-content"} />
             <ScrollView showsVerticalScrollIndicator={false} >
 
 
@@ -121,6 +126,14 @@ const ArtistPlaylist = ({route}) => {
 
                 </View>
             </ScrollView>
+
+            <Modal transparent={true} visible={loading}   >
+                <View style={{ backgroundColor: "#00000066" ,justifyContent:"center",alignItems:"center"}} >
+                    <View style={{ height: "100%", width: "100%"  ,justifyContent:"center",alignItems:"center"}} >
+                        <LottieView style={{ height: 250, width: 250 }} source={require('./animations/2919-play-stop-animation.json')} autoPlay loop />
+                    </View>
+                </View>
+            </Modal>
 
         </View>
     )
