@@ -1,5 +1,6 @@
-import React from 'react';
-import {YellowBox} from "react-native"
+import React, { useEffect } from 'react';
+import SplashScreen from 'react-native-splash-screen';
+import { YellowBox } from "react-native"
 import {
   SafeAreaView,
   StyleSheet,
@@ -12,15 +13,19 @@ import {
 import Tabbar from "./Tabbar"
 
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement'
-,"VirtualizedLists"
-,"Warning: Each child in a list",
-" Warning: Cannot update a component....",
-"StatusBar._updatePropsStack"]);
+  , "VirtualizedLists"
+  , "Warning: Each child in a list",
+  " Warning: Cannot update a component....",
+  "StatusBar._updatePropsStack"]);
 
 const App = () => {
- 
+
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
+
   return (
-    <Tabbar/>
+    <Tabbar />
   )
 
 }

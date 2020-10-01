@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Dimensions, ActivityIndicator, Image, StatusBar, AsyncStorage, Modal, RefreshControl,Animated } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions, ActivityIndicator, Image, StatusBar, AsyncStorage, Modal, RefreshControl,Animated,useColorScheme } from "react-native";
 import Icons from "react-native-vector-icons/FontAwesome5"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import { ScrollView, FlatList } from "react-native-gesture-handler";
@@ -18,6 +18,8 @@ import Topsongs from "./Topsongs";
 
 
 const Homepage = ({ navigation }) => {
+    
+ 
 
     const PlaybackState = usePlaybackState();
     const [history, sethistory] = useState(false)
@@ -39,21 +41,47 @@ const Homepage = ({ navigation }) => {
         }
         historyfuction()
 
-        if (PlaybackState == "2" || "3") {
-            setTimeout(() => {
-                setmodal(false)
-            }, 5500);
+        // if (PlaybackState == "2" || "3") {
+            
+        //     setTimeout(() => {
+        //         setmodal(false)
+        //     }, 3000);
 
-        }
+        // }
 
         setTimeout(() => {
             setbanner(true)
-        }, 9000);
+        }, 10000);
 
 
     }, [])
+    
+    useEffect(()=>{
+        func=()=>{
+            if (PlaybackState == "3") {
+                setmodal(false)
+                setbanner(true)
+                // setTimeout(() => {
+                //     setmodal(false)
+                // }, 3000);
+    
+            }
+        }
+        func()
+    },[PlaybackState])
 
-
+    useEffect(()=>{
+        func=()=>{
+            if (PlaybackState == "2") {
+                setmodal(false)
+                // setTimeout(() => {
+                //     setmodal(false)
+                // }, 3000);
+    
+            }
+        }
+        func()
+    },[PlaybackState])
 
   
 
@@ -84,6 +112,7 @@ const Homepage = ({ navigation }) => {
 
     return (
         <SafeAreaView>
+            <View>
 
             <StatusBar backgroundColor={"#f6f6f6"} barStyle={"dark-content"} />
             <View style={{ alignItems: "flex-start", left: 20, width: WIDTH.width, height: 50,backgroundColor:"#f6f6f6",justifyContent:"center" }} >
@@ -208,6 +237,8 @@ const Homepage = ({ navigation }) => {
                    
                 </View>
             </Modal>
+            </View>
+
 
         </SafeAreaView>
 

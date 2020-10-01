@@ -4,7 +4,7 @@ import Icons from "react-native-vector-icons/FontAwesome5"
 import AntIcons from "react-native-vector-icons/AntDesign"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import Slider from "@react-native-community/slider";
-import TrackPlayer, { play, useProgress, usePlaybackState } from 'react-native-track-player';
+import TrackPlayer, { play, useProgress, usePlaybackState,Capability } from 'react-native-track-player';
 import Moment from "moment";
 import axios from "axios"
 import { useIsFocused } from '@react-navigation/native';
@@ -88,9 +88,17 @@ const MusicPlayer = ({ navigation }) => {
 
 
 
-            TrackPlayer.updateOptions({
-                stopWithApp: true
-            });
+            await TrackPlayer.updateOptions({
+                capabilities: [
+                    Capability.Play,
+                    Capability.Pause,
+                    Capability.SkipToNext,
+                    Capability.SkipToPrevious,
+                ],
+                
+                stopWithApp:true
+                
+            })
             // console.log((await TrackPlayer.getQueue()).length)
         }
         trackfunction()
@@ -185,17 +193,17 @@ const MusicPlayer = ({ navigation }) => {
                     <View style={{ flex: 1, width: WIDTH.width, justifyContent: "center", alignItems: "center" }} >
 
                         <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} decelerationRate={"fast"} snapToInterval={WIDTH.width/1.18} snapToAlignment={"center"}  contentContainerStyle={{justifyContent:"center",alignItems:"center",paddingRight:10,paddingLeft:25}} >
-                            <View style={{ width: WIDTH.width / 1.2 ,height:350,marginRight:15, backgroundColor: "silver", elevation: 1, borderRadius: 10, overflow: "hidden", elevation: 10 }} >
+                            <View style={{ width: WIDTH.width / 1.2 ,height:WIDTH.width / 1.2,marginRight:15, backgroundColor: "silver", elevation: 1, borderRadius: 10, overflow: "hidden", elevation: 10 }} >
                                 <Image style={{ width: "100%", height: "100%" }}
                                     source={{ uri: data.img }}
                                 />
                             </View>
-                            <View style={{ width: WIDTH.width / 1.2 ,height: 350,marginRight:15, backgroundColor: "silver", elevation: 1, borderRadius: 10, overflow: "hidden", elevation: 10 }} >
+                            <View style={{ width: WIDTH.width / 1.2 ,height: WIDTH.width / 1.2,marginRight:15, backgroundColor: "silver", elevation: 1, borderRadius: 10, overflow: "hidden", elevation: 10 }} >
                                 <Image style={{ width: "100%", height: "100%" }}
                                     source={{ uri: data.img }}
                                 />
                             </View>
-                            <View style={{ width: WIDTH.width / 1.2 ,height: 350,marginRight:15, backgroundColor: "silver", elevation: 1, borderRadius: 10, overflow: "hidden", elevation: 10 }} >
+                            <View style={{ width: WIDTH.width / 1.2 ,height: WIDTH.width / 1.2,marginRight:15, backgroundColor: "silver", elevation: 1, borderRadius: 10, overflow: "hidden", elevation: 10 }} >
                                 <Image style={{ width: "100%", height: "100%" }}
                                     source={{ uri: data.img }}
                                 />

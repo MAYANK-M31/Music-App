@@ -80,7 +80,7 @@ const RecentPlayed = (props) => {
 
     const play = async (item) => {
 
-
+        await AsyncStorage.setItem("lastsong", JSON.stringify(item))
 
         const track = {
             "id": item.id,
@@ -125,7 +125,7 @@ const RecentPlayed = (props) => {
                                 return (
                                     <View>
 
-                                        <TouchableOpacity onPress={() => play(item)} style={{ width: WIDTH.width / 3.5, height: "100%", marginLeft: 4 }} >
+                                        <TouchableOpacity  style={{ width: WIDTH.width / 3.5, height: "100%", marginLeft: 4 }} >
                                             <View style={{ width: "100%", height: "60%", borderRadius: 3, overflow: "hidden", backgroundColor: item.color }} >
 
                                             </View>

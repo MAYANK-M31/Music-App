@@ -64,7 +64,7 @@ const ArtistPlaylist = ({route}) => {
     return (
         <View style={{ backgroundColor: "#f6f6f6" }}  >
             <StatusBar translucent backgroundColor={"transparent"} barStyle={"dark-content"} />
-            <ScrollView showsVerticalScrollIndicator={false} >
+            <ScrollView showsVerticalScrollIndicator={false}  style={{ backgroundColor: "#f6f6f6", height: HEIGHT }} >
 
 
                 <ImageBackground style={{ height: HEIGHT * 0.4 }}
@@ -99,6 +99,8 @@ const ArtistPlaylist = ({route}) => {
 
                     <FlatList
                         keyboardShouldPersistTaps="always"
+                        // style={{ backgroundColor: "#f6f6f6", height: HEIGHT - 150 }}
+                        contentContainerStyle={{paddingBottom: 150 }}
                         data={result}
                         keyExtractor={item => item.id}
                         renderItem={({ item }) => {
@@ -106,7 +108,7 @@ const ArtistPlaylist = ({route}) => {
                                 <View style={{ width: WIDTH, top: "2%", justifyContent: "center", alignItems: "center" }} >
                                     <TouchableRipple onPress={()=>play(item)} rippleColor="rgba(0, 0, 0, 0.15)" style={{ height: HEIGHT / 11, justifyContent: "center", alignItems: "center" }} >
                                         <View style={{ width: WIDTH, height: HEIGHT / 13, alignItems: "center", flexDirection: "row", left: "25%" }} >
-                                            <View style={{ width: WIDTH / 8, height: "90%", borderRadius: 6, overflow: "hidden" }}>
+                                            <View style={{ width: WIDTH / 8, height: WIDTH / 8, borderRadius: 6, overflow: "hidden" }}>
                                                 <Image style={{ width: "100%", height: "100%" }} source={{ uri: `${item.img}` }} />
                                             </View>
                                             <View style={{ width: WIDTH / 1.5, height: "90%", paddingLeft: 15, justifyContent: "center" }}>

@@ -10,14 +10,16 @@ import axios from "axios";
 
 const WIDTH = Dimensions.get("window")
 const HEIGHT = Dimensions.get("window").height
-const initialtrack = {
+var initialtrack = {
     "id": "5f57d5f12652d031f8eba",
     "url": "https://song-streamer.herokuapp.com/data/stream/Anne-Marie - Ciao Adios ( )",
     "title": "Cias Adios",
     "album": "Album",
     "artist": "Anne Maria",
-    "img": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Anne-Marie_-_Ciao_Adios.png/220px-Anne-Marie_-_Ciao_Adios.png"
+    "img": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Anne-Marie_-_Ciao_Adios.png/220px-Anne-Marie_-_Ciao_Adios.png",
+    "artwork": "https://www.wallpaperflare.com/static/326/300/995/kananaskis-sunrise-water-purple-wallpaper.jpg"
 }
+
 
 
 
@@ -47,10 +49,12 @@ const BottomTab = () => {
             } else {
                 setdata(lastsong)
                 setisready(true)
-                TrackPlayer.setupPlayer().then(async () => {
+                // TrackPlayer.setupPlayer().then(async () => {
                     // TrackPlayer.reset()
                     await TrackPlayer.add([lastsong])
-                })
+                    
+                // })
+                 
                 await TrackPlayer.updateOptions({
                     capabilities: [
                         Capability.Play,
@@ -58,6 +62,9 @@ const BottomTab = () => {
                         Capability.SkipToNext,
                         Capability.SkipToPrevious,
                     ],
+                    
+                    stopWithApp:true
+                    
                 })
 
 
@@ -89,7 +96,7 @@ const BottomTab = () => {
             const track_Id = await TrackPlayer.getCurrentTrack();
             const trackinfo = await TrackPlayer.getTrack(track_Id)
             const lastsong = JSON.parse(await AsyncStorage.getItem("lastsong"))
-            // console.log(trackinfo)
+            
 
             // const lastsong = JSON.parse(await AsyncStorage.getItem("lastsong"))
 
