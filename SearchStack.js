@@ -1,6 +1,6 @@
-import React from "react";
-import  {View} from "react-native";
-import {NavigationContainer} from "@react-navigation/native";
+import React, { useEffect } from "react";
+import  {View, Alert, BackHandler} from "react-native";
+import {NavigationContainer, useNavigation} from "@react-navigation/native";
 import {createStackNavigator,CardStyleInterpolators} from "@react-navigation/stack"
 import MusicPlayer from "./MusicPlayer";
 import Homepage from "./Homepage";
@@ -10,6 +10,11 @@ import Searchpage from "./Searchpage";
 const stack = createStackNavigator()
 
 const SearchStack = ()=>{
+
+
+  
+
+
     return(
     <NavigationContainer independent={true} >
         <stack.Navigator screenOptions={{cardStyleInterpolator:CardStyleInterpolators.forHorizontalIOS}}  >

@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack"
 import MusicPlayer from "./MusicPlayer";
 import Homepage from "./Homepage";
+import ArtistPlaylistHome from "./ArtistPlaylistHome";
 
 
 const stack = createStackNavigator()
@@ -14,7 +15,7 @@ const Home = () => {
         <NavigationContainer independent={true} >
             <stack.Navigator  >
                 <stack.Screen name="Homepage" component={Homepage} options={{ headerShown: false }} />
-                {/* <stack.Screen name="MusicPlayer" component={MusicPlayer} options={{headerShown:false}} /> */}
+                <stack.Screen name="ArtistPlaylistHome" component={ArtistPlaylistHome} options={{headerShown:false}} />
             </stack.Navigator>
         </NavigationContainer>
     )
