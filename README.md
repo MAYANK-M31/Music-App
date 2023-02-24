@@ -4,4 +4,4 @@
 
 ### SCREENSHOTS
 
-![Frame (1)](https://user-images.githubusercontent.com/64833303/221134614-1e69c865-973d-448d-bc59-494372e78757.svg)
+![Frame](https://user-images.githubusercontent.com/64833303/221135036-3cf816d1-f664-4c9c-b252-59be6ce40f44.jpg)
